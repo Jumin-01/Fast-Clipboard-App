@@ -13,11 +13,7 @@ namespace Fast_Clipboard_App
         public Form1()
         {
             InitializeComponent();
-            InitializeFile();
-           
-
-
-
+            InitializeFile();        
         }
 
         public void InitializeFile()
@@ -52,11 +48,12 @@ namespace Fast_Clipboard_App
            
 
             // Запуск приложения "Блокнот" с указанным файлом
-            Process.Start("notepad.exe", filePath);
-            
-            
-            
+            Process.Start("notepad.exe", filePath);   
         }
-      
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            InitializeFile();
+        }
     }
 }
