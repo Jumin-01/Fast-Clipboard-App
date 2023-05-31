@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using System.Windows.Forms;
 
 
@@ -12,12 +13,18 @@ namespace Fast_Clipboard_App
         public Form1()
         {
             InitializeComponent();
-            string[] itemsAdd = File.ReadAllLines("result.txt");
-            //string[] itemsAdd = { " бросил", " сброс", " отказ", " автоотв", " не брал"," не нужно", " нет страховки", " сроки вышли", " грубый отказ"," сам вернул", " непрофильный", " ошибочный номер" };
-            listBox1.Items.AddRange(itemsAdd);
-            
+            InitializeFile();
            
 
+
+
+        }
+
+        public void InitializeFile()
+        {
+            string[] itemsAdd = File.ReadAllLines("result.txt");
+            listBox1.Items.Clear();
+            listBox1.Items.AddRange(itemsAdd);
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -37,5 +44,19 @@ namespace Fast_Clipboard_App
                 TopMost = true;
             }else TopMost = false;
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string executablePath = AppDomain.CurrentDomain.BaseDirectory;
+            string filePath = Path.Combine(executablePath, "result.txt");
+           
+
+            // Запуск приложения "Блокнот" с указанным файлом
+            Process.Start("notepad.exe", filePath);
+            
+            
+            
+        }
+      
     }
 }
