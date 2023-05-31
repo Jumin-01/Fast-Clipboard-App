@@ -12,15 +12,23 @@ namespace Fast_Clipboard_App
         //}
         public Form1()
         {
+
             InitializeComponent();
             InitializeFile();        
         }
 
         public void InitializeFile()
         {
-            string[] itemsAdd = File.ReadAllLines("result.txt");
-            listBox1.Items.Clear();
-            listBox1.Items.AddRange(itemsAdd);
+
+            if (File.Exists("result.txt"))
+            {
+                string[] itemsAdd = File.ReadAllLines("result.txt");
+                listBox1.Items.Clear();
+                listBox1.Items.AddRange(itemsAdd);
+
+            }
+            else File.Create("result.txt");
+          
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
