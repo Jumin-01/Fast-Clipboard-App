@@ -1,5 +1,6 @@
 using System.Windows.Forms;
 
+
 namespace Fast_Clipboard_App
 {
     public partial class Form1 : Form
@@ -11,7 +12,8 @@ namespace Fast_Clipboard_App
         public Form1()
         {
             InitializeComponent();
-            string[] itemsAdd = { " бросил", " сброс", " отказ", " автоотв", " не брал"," не нужно", " нет страховки", " сроки вышли", " грубый отказ"," сам вернул", " непрофильный", " ошибочный номер" };
+            string[] itemsAdd = File.ReadAllLines("result.txt");
+            //string[] itemsAdd = { " бросил", " сброс", " отказ", " автоотв", " не брал"," не нужно", " нет страховки", " сроки вышли", " грубый отказ"," сам вернул", " непрофильный", " ошибочный номер" };
             listBox1.Items.AddRange(itemsAdd);
             
            
