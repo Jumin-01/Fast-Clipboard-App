@@ -6,10 +6,7 @@ namespace Fast_Clipboard_App
 {
     public partial class Form1 : Form
     {
-        //enum ResultCal
-        //{
-        //    бросил = 0, отказ, недозвон, сброс, автоотв, 
-        //}
+        
         public Form1()
         {
 
