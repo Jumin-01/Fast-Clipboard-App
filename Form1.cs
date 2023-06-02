@@ -60,5 +60,24 @@ namespace Fast_Clipboard_App
         {
             InitializeFile();
         }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Properties.Settings.Default.WindowPositionX = this.Location.X;
+            Properties.Settings.Default.WindowPositionY = this.Location.Y;
+            Properties.Settings.Default.WindowWidth = this.Size.Width;
+            Properties.Settings.Default.WindowHeight = this.Size.Height;
+
+            Properties.Settings.Default.Save();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            //base.OnLoad(e);
+
+            this.Location = new Point(Properties.Settings.Default.WindowPositionX, Properties.Settings.Default.WindowPositionY);
+            this.Size = new Size(Properties.Settings.Default.WindowWidth, Properties.Settings.Default.WindowHeight);
+        }
     }
+    
 }
